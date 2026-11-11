@@ -1,0 +1,15 @@
+---
+config:
+  layout: fixed
+  theme: neo
+---
+flowchart LR
+    source@{ label: "All Source of Data's" } --> Staging@{ label: "<b>Data Staging Area</b> <br>-Loading the raw data's<br>Staging the data<br>" }
+    Staging --> ODS["<b>Operation Data source</b><br>Cleaning and scrubing the data to be filtered<br>"] & n2["No History"]
+    ODS --> DWH["<b>Data Warehouse </b> <br> Transforming the data by fact &amp; dimensional &amp; aggeragted <br>"] & n3["Upto 3 Months"]
+    DWH --> DM@{ label: "<b>Data Mart</b> <br>Storing as per subject wise or nature of data's <br>" } & n4["3 - 5 Years Data"]
+    DM --> n5["3 - 5 Years Data"]
+
+    source@{ shape: rect}
+    Staging@{ shape: rect}
+    DM@{ shape: rect}
